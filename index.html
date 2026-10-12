@@ -61,7 +61,12 @@
         </nav> -->
 
         <a class="button button-small header-cta" href="#early-access">
-          Get early access
+          <span class="button-label-window">
+            <span class="button-label-stack">
+              <span class="button-label">Get early access</span>
+              <span class="button-label button-label-duplicate" aria-hidden="true">Get early access</span>
+            </span>
+          </span>
         </a>
       </div>
     </header>
@@ -76,8 +81,12 @@
             </p>
 
             <h1>
-              Run your<br />programmes with<br/><span>clarity</span> and
-              <span>control.</span>
+              <span class="hero-heading-clip">
+                <span class="hero-heading-text">
+                  Run your<br />programmes with<br /><span>clarity</span> and
+                  <span>control.</span>
+                </span>
+              </span>
             </h1>
             <p class="lede">
               From coordinating people and sessions to tracking progress and
@@ -87,8 +96,22 @@
           </div>
 
           <div class="hero-actions">
-            <a class="button" href="#early-access">Get early access</a>
-            <a class="button button-secondary" href="#product">Explore the vision</a>
+            <a class="button" href="#early-access">
+              <span class="button-label-window">
+                <span class="button-label-stack">
+                  <span class="button-label">Get early access</span>
+                  <span class="button-label button-label-duplicate" aria-hidden="true">Get early access</span>
+                </span>
+              </span>
+            </a>
+            <a class="button button-secondary" href="#product">
+              <span class="button-label-window">
+                <span class="button-label-stack">
+                  <span class="button-label">Explore the vision</span>
+                  <span class="button-label button-label-duplicate" aria-hidden="true">Explore the vision</span>
+                </span>
+              </span>
+            </a>
           </div>
 
           <div class="hero-note">
@@ -134,7 +157,38 @@
                 Bring programmes, cohorts, participants, trainers, and delivery
                 details together in one operational picture.
               </p>
-              <div class="card-illustration illustration-connected" data-illustration-slot="connected-delivery" aria-hidden="true"></div>
+              <div class="card-illustration illustration-connected" data-illustration-slot="connected-delivery" aria-hidden="true">
+                <div class="mini-workspace">
+                  <div class="mini-workspace-topbar visual-reveal">
+                    <span class="mini-brand-mark"></span>
+                    <span>Synqop workspace</span>
+                    <span class="mini-sample-tag">SAMPLE</span>
+                  </div>
+                  <div class="mini-workspace-content">
+                    <div class="mini-view-heading visual-reveal">
+                      <div><span class="mini-overline">DEMO WORKSPACE</span><strong>Programmes</strong></div>
+                      <span class="mini-action-dot">+</span>
+                    </div>
+                    <div class="mini-stat-strip visual-reveal">
+                      <div><strong>04</strong><span>programmes</span></div>
+                      <div><strong>12</strong><span>participants</span></div>
+                      <div><strong>06</strong><span>team members</span></div>
+                    </div>
+                    <div class="mini-programme-list">
+                      <div class="mini-list-heading visual-reveal"><span>Programme</span><span>Status</span></div>
+                      <div class="mini-programme-row visual-reveal">
+                        <span class="mini-row-symbol symbol-blue">A</span><span class="mini-row-copy"><strong>Launch cohort</strong><small>6 participants · 2 trainers</small></span><span class="mini-status status-blue">Active</span>
+                      </div>
+                      <div class="mini-programme-row visual-reveal">
+                        <span class="mini-row-symbol symbol-violet">B</span><span class="mini-row-copy"><strong>Skills pathway</strong><small>4 participants · 2 trainers</small></span><span class="mini-status status-green">On track</span>
+                      </div>
+                      <div class="mini-programme-row visual-reveal">
+                        <span class="mini-row-symbol symbol-cyan">C</span><span class="mini-row-copy"><strong>Team workshops</strong><small>2 participants · 2 trainers</small></span><span class="mini-status status-muted">Planning</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </article>
 
             <article class="product-card" data-reveal>
@@ -143,7 +197,29 @@
                 See the signals behind a participant status, so teams can review
                 context and decide what to do next.
               </p>
-              <div class="card-illustration illustration-signals" data-illustration-slot="transparent-signals" aria-hidden="true"></div>
+              <div class="card-illustration illustration-signals" data-illustration-slot="transparent-signals" aria-hidden="true">
+                <div class="mini-monitor">
+                  <div class="mini-monitor-heading visual-reveal">
+                    <div><span class="mini-overline">SAMPLE COHORT</span><strong>Participant overview</strong></div>
+                    <span class="mini-range-pill">This month⌄</span>
+                  </div>
+                  <div class="mini-participant-row visual-reveal">
+                    <span class="mini-avatar avatar-blue">JM</span>
+                    <span class="mini-row-copy"><strong>Participant A</strong><small>Attendance</small></span>
+                    <span class="mini-participant-progress"><i class="mini-progress-track"><i class="mini-progress-fill" style="--progress: 86%"></i></i><b>86%</b></span>
+                  </div>
+                  <div class="mini-participant-row visual-reveal">
+                    <span class="mini-avatar avatar-violet">RK</span>
+                    <span class="mini-row-copy"><strong>Participant B</strong><small>Assignments</small></span>
+                    <span class="mini-participant-progress"><i class="mini-progress-track"><i class="mini-progress-fill" style="--progress: 68%"></i></i><b>68%</b></span>
+                  </div>
+                  <div class="mini-followup-alert visual-reveal">
+                    <span class="mini-alert-mark">!</span>
+                    <span class="mini-row-copy"><strong>Follow-up to review</strong><small>One missed session · sample signal</small></span>
+                    <span class="mini-alert-link">Review</span>
+                  </div>
+                </div>
+              </div>
             </article>
             <article class="product-card" data-reveal>
               <h3>Follow progress as it happens.</h3>
@@ -151,7 +227,23 @@
                 Keep attendance, assignments, and participant progress easier
                 to follow across your programmes.
               </p>
-              <div class="card-illustration illustration-progress" data-illustration-slot="progress-tracking" aria-hidden="true"></div>
+              <div class="card-illustration illustration-progress" data-illustration-slot="progress-tracking" aria-hidden="true">
+                <div class="mini-progress-view">
+                  <div class="mini-progress-heading visual-reveal">
+                    <div><span class="mini-overline">ILLUSTRATIVE COHORT</span><strong>Progress snapshot</strong></div>
+                    <span class="mini-week-pill">Week 04</span>
+                  </div>
+                  <div class="mini-progress-summary visual-reveal">
+                    <div><strong>72%</strong><span>overall progress</span></div>
+                    <div class="mini-completion-ring"><span>8<small>/11</small></span></div>
+                  </div>
+                  <div class="mini-progress-metrics visual-reveal">
+                    <div class="mini-progress-line"><span>Assignments</span><b>8 of 11</b><i class="mini-progress-track"><i class="mini-progress-fill" style="--progress: 72%"></i></i></div>
+                    <div class="mini-progress-line"><span>Attendance</span><b>91%</b><i class="mini-progress-track"><i class="mini-progress-fill fill-cyan" style="--progress: 91%"></i></i></div>
+                  </div>
+                  <div class="mini-activity visual-reveal"><span class="mini-activity-dot"></span><span><strong>Recent activity</strong><small>Module 3 completed · sample entry</small></span><time>Today</time></div>
+                </div>
+              </div>
             </article>
             <article class="product-card" data-reveal>
               <h3>See the bigger picture.</h3>
@@ -159,7 +251,27 @@
                 Bring programme activity and progress into a clearer view to
                 support organisational decisions.
               </p>
-              <div class="card-illustration illustration-reporting" data-illustration-slot="programme-reporting" aria-hidden="true"></div>
+              <div class="card-illustration illustration-reporting" data-illustration-slot="programme-reporting" aria-hidden="true">
+                <div class="mini-report">
+                  <div class="mini-report-heading visual-reveal">
+                    <div><span class="mini-overline">SAMPLE REPORT</span><strong>Programme overview</strong></div>
+                    <span class="mini-range-pill">Last 8 weeks⌄</span>
+                  </div>
+                  <div class="mini-report-metrics visual-reveal">
+                    <div><span>Completion</span><strong>78<small>%</small></strong><em>Across sample cohorts</em></div>
+                    <div><span>Sessions</span><strong>24</strong><em>Of 30 planned</em></div>
+                    <div><span>On track</span><strong>86<small>%</small></strong><em>Sample participants</em></div>
+                  </div>
+                  <div class="mini-chart-panel visual-reveal">
+                    <div class="mini-chart-title"><strong>Progress over time</strong><span>Illustrative</span></div>
+                    <div class="mini-chart">
+                      <span class="mini-chart-grid grid-one"></span><span class="mini-chart-grid grid-two"></span>
+                      <i class="mini-chart-bar" style="--bar-height: 38%"></i><i class="mini-chart-bar" style="--bar-height: 52%"></i><i class="mini-chart-bar" style="--bar-height: 46%"></i><i class="mini-chart-bar" style="--bar-height: 68%"></i><i class="mini-chart-bar" style="--bar-height: 78%"></i><i class="mini-chart-bar" style="--bar-height: 91%"></i>
+                    </div>
+                    <div class="mini-chart-labels"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span></div>
+                  </div>
+                </div>
+              </div>
             </article>
           </div>
         </div>
@@ -368,7 +480,14 @@
             </div>
           </div>
 
-          <form class="interest-form" id="interest-form" data-reveal>
+          <form
+            class="interest-form"
+            id="interest-form"
+            action="https://formspree.io/f/meaelpwk"
+            method="POST"
+            aria-describedby="form-status"
+            data-reveal
+          >
             <div class="form-heading">
               <!-- <img
                 class="form-logo"
@@ -378,8 +497,8 @@
                 height="400"
               /> -->
               <div>
-                <b>Register your interest</b
-                ><small>It takes less than a minute</small>
+                <b>Register your interest</b>
+                <small>It takes less than a minute</small>
               </div>
             </div>
             <label for="email">Work email</label>
@@ -390,21 +509,26 @@
               autocomplete="email"
               placeholder="you@organisation.com"
               required
-              aria-describedby="email-error"/>
-              
-              <span class="field-error" id="email-error"></span>
-              <label for="organisation">Organisation name</label>
-              
-              <input
+              aria-describedby="email-error"
+            />
+            <span class="field-error" id="email-error"></span>
+            <label for="organisation">Organisation name</label>
+            <input
               id="organisation"
               name="organisation"
               autocomplete="organization"
               placeholder="Your organisation"
               required
               aria-describedby="org-error"
-            /><span class="field-error" id="org-error"></span
-            ><button class="button form-submit" type="submit">
-              Register interest
+            />
+            <span class="field-error" id="org-error"></span>
+            <button class="button form-submit" type="submit">
+              <span class="button-label-window">
+                <span class="button-label-stack">
+                  <span class="button-label">Register interest</span>
+                  <span class="button-label button-label-duplicate" aria-hidden="true">Register interest</span>
+                </span>
+              </span>
             </button>
 
             <div class="form-consent">
@@ -413,6 +537,7 @@
                 id="consent"
                 name="consent"
                 type="checkbox"
+                value="agreed"
                 required
               />
               <label for="consent">
@@ -420,7 +545,6 @@
                 early-access communications from Synqop.
               </label>
             </div>
-            
             <div
               id="form-status"
               class="form-status"

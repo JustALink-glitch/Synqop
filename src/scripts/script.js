@@ -1,3 +1,8 @@
+const hero = document.querySelector('.hero');
+if (hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  hero.classList.add('hero-entrance-ready');
+}
+
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('.primary-nav');
 
@@ -84,25 +89,78 @@ const form = document.querySelector('#interest-form');
 const formStatus = document.querySelector('#form-status');
 const email = document.querySelector('#email');
 const organisation = document.querySelector('#organisation');
+const consent = document.querySelector('#consent');
+const submitButton = form.querySelector('.form-submit');
+let isSubmitting = false;
 
-form.addEventListener('submit', (event) => {
+function setButtonLabel(button, text) {
+  const labels = button.querySelectorAll('.button-label');
+  if (labels.length) {
+    labels.forEach((label) => { label.textContent = text; });
+  } else {
+    button.textContent = text;
+  }
+}
+
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
+  if (isSubmitting) return;
+
   formStatus.className = 'form-status';
   formStatus.textContent = '';
   const emailError = document.querySelector('#email-error');
   const orgError = document.querySelector('#org-error');
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
   const orgValid = organisation.value.trim().length > 0;
+  const consentValid = consent.checked;
   email.setAttribute('aria-invalid', String(!emailValid));
   organisation.setAttribute('aria-invalid', String(!orgValid));
   emailError.textContent = emailValid ? '' : (email.value.trim() ? 'Enter a valid email address.' : 'Enter your work email.');
   orgError.textContent = orgValid ? '' : 'Enter your organisation name.';
-  if (!emailValid || !orgValid) {
-    (!emailValid ? email : organisation).focus();
+  if (!emailValid || !orgValid || !consentValid) {
+    (!emailValid ? email : !orgValid ? organisation : consent).focus();
     formStatus.textContent = 'Check the highlighted fields and try again.';
     return;
   }
-  formStatus.textContent = 'Your details are valid. This preview has no submission endpoint, so nothing was sent or stored.';
+
+  isSubmitting = true;
+  submitButton.disabled = true;
+  setButtonLabel(submitButton, 'Sending…');
+  form.setAttribute('aria-busy', 'true');
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+
+    let result = null;
+    try {
+      result = await response.json();
+    } catch {
+      // A successful HTTP response without JSON is still a confirmed success.
+    }
+
+    const hasServerErrors = Array.isArray(result?.errors) && result.errors.length > 0;
+    if (!response.ok || result?.ok === false || hasServerErrors) {
+      throw new Error('Formspree submission failed.');
+    }
+
+    formStatus.className = 'form-status success';
+    formStatus.textContent = 'Thanks — your interest has been submitted. We’ll be in touch.';
+    form.reset();
+    email.removeAttribute('aria-invalid');
+    organisation.removeAttribute('aria-invalid');
+  } catch {
+    formStatus.className = 'form-status';
+    formStatus.textContent = 'We couldn’t submit your details just now. Your information is still here; please try again.';
+  } finally {
+    isSubmitting = false;
+    submitButton.disabled = false;
+    setButtonLabel(submitButton, 'Register interest');
+    form.removeAttribute('aria-busy');
+  }
 });
 
 document.querySelector('#year').textContent = new Date().getFullYear();
