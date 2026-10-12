@@ -1,0 +1,64 @@
+/* Saved capability section styles. Shared .section, .container, .section-heading, .eyebrow, design tokens, and [data-reveal] behavior remain in the active stylesheet/script. */
+.capability-section {
+  background: #fff;
+}
+.capability-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.capability {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 20px;
+  min-height: 112px;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s;
+}
+.cap-icon {
+  width: 35px;
+  height: 35px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: #edf2ff;
+  border-radius: 10px;
+  color: var(--blue);
+  font-size: 17px;
+}
+.capability h3 {
+  font-size: 13px;
+  margin: 1px 0 6px;
+}
+.capability p {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+  max-width: 390px;
+}
+.cap-arrow {
+  margin-left: auto;
+  color: #9aa5b4;
+  font-size: 13px;
+}
+
+.capability:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(16, 24, 40, 0.08);
+}
+
+
+
+@media (max-width: 760px) {
+  .capability-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+  .capability {
+    padding: 16px;
+    min-height: 100px;
+  }
+}
