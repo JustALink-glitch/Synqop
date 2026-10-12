@@ -1700,7 +1700,7 @@ h1 {
     align-items: stretch;
     padding-top: 32px;
     padding-bottom: 45px;
-    gap: 100px;
+    gap: clamp(32px, 8vw, 48px);
   }
 
   .hero-copy {
