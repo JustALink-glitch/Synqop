@@ -1756,3 +1756,107 @@ h1 {
     line-height: 1.6;
   }
 }
+
+/* Pilot call to action */
+.pilot-section {
+  padding: clamp(56px, 7vw, 96px) 0 0;
+  background: var(--bg);
+}
+.pilot-band {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+  padding: clamp(36px, 5vw, 72px);
+  border-radius: var(--radius-card);
+  background: var(--color-primary);
+  color: var(--white);
+  overflow: hidden;
+}
+.pilot-eyebrow {
+  margin: 0 0 16px;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.02em;
+  color: #bbcff9;
+}
+.pilot-band h2 {
+  margin: 0 0 18px;
+  color: var(--white);
+  font-size: clamp(34px, 4.4vw, 56px);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.05;
+  letter-spacing: var(--letter-spacing-display);
+}
+.pilot-lede {
+  max-width: 540px;
+  margin: 0 0 24px;
+  color: #e9effd;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.pilot-points {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+}
+.pilot-points li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.pilot-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: var(--color-gradient-secondary);
+  border-radius: 0 0 14px 0;
+}
+.button-on-blue {
+  background: var(--white);
+  color: var(--color-primary);
+}
+.button-on-blue:hover {
+  background: #e9effd;
+}
+.button-on-blue:active {
+  background: #d3e0fb;
+}
+.pilot-art {
+  display: flex;
+  justify-content: center;
+}
+.pilot-petal {
+  width: min(100%, 280px);
+  height: auto;
+  fill: var(--white);
+}
+.pilot-petal .pilot-petal-turned {
+  fill: var(--color-gradient-secondary);
+}
+@supports (corner-shape: squircle) {
+  .pilot-band {
+    corner-shape: squircle;
+  }
+}
+@media (max-width: 760px) {
+  .pilot-band {
+    grid-template-columns: 1fr;
+    border-radius: 32px;
+  }
+  .pilot-art {
+    order: -1;
+    justify-content: flex-start;
+  }
+  .pilot-petal {
+    width: 72px;
+  }
+}
