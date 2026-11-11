@@ -475,9 +475,11 @@ h1 {
   margin-bottom: 8px;
 }
 
-.section-heading h2 span, 
-.workflow-intro h2 span,
-
+.section-heading h2 span,
+.workflow-intro h2 span {
+    color: #69758c;
+    font-style: italic;
+}
 
 .section-heading > p:last-child {
     max-width: 520px;
@@ -1694,7 +1696,7 @@ h1 {
 
 /* Pilot call to action */
 .pilot-section {
-  padding: clamp(56px, 7vw, 96px) 0 0;
+  padding: clamp(56px, 7vw, 96px) 0;
   background: var(--bg);
 }
 .pilot-band {
