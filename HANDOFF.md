@@ -14,16 +14,13 @@ The static landing page is substantially implemented: responsive hero and produc
 - Working branch: `main`
 - Remote: `origin` → `https://github.com/kainemichael/Synqop.git`
 - Production URL referenced by the sitemap and social metadata: <https://synqop.com/> (there is no canonical `<link>` tag in the current page head.)
-- Hosting: the project has been identified as Vercel-hosted in the existing project context. Vercel project settings and preview URLs are not stored in this repository.
+- Production hosting: **synqop.com is served from a Vercel project on Abdulhameed's account, built from a fork of this repo.** After pushing to `main` here, Abdulhameed syncs the fork so the change reaches synqop.com. Pushing here does not update production on its own.
 
-### Deployment behavior to verify
+### Other deployments from this repo
 
-There are two deployment-related configurations in the repo:
-
-1. `.github/workflows/static.yml` deploys the repository root to GitHub Pages on every push to `main`; it also supports manual `workflow_dispatch` from GitHub Actions.
-2. `vercel.json` contains a rewrite from `/images/:path*` to `/public/images/:path*`. It does not define Vercel's production branch or preview behavior.
-
-Do not assume which deployment currently owns the production domain or whether Vercel previews are enabled. Confirm the Vercel project's connected repository, production branch, domain assignment, and preview settings; also confirm whether GitHub Pages is intentionally kept active. No stable preview URL is defined in the checked-in files. Avoid changing either deployment until that ownership is clear.
+1. A Vercel project in the `kaine-projects` team deploys every push to `main` (for example `synqop-dkvhh7yy1-kaine-projects.vercel.app`). It is a preview, not the production domain.
+2. `.github/workflows/static.yml` deploys the repository root to GitHub Pages on every push to `main`, plus manual `workflow_dispatch`. Kept on intentionally. A run on 11 Nov 2026 failed with a transient "no github-pages artifact found" error; earlier runs with the same config succeeded.
+3. `vercel.json` contains a rewrite from `/images/:path*` to `/public/images/:path*`, which the OG image URL relies on.
 
 ## 3. Technology stack
 
@@ -112,7 +109,7 @@ Important custom properties in `src/styles/styles.css`:
 | `--color-footer-gradient-start` | `#071738` |
 | `--muted` | `#667085` |
 | `--text` | `#475467` |
-| effective `--border` | `#e4e7ec` (declared a second time; this later declaration wins) |
+| `--border` | `#e4e7ec` |
 | `--font-family-sans` | Inter, then system sans-serif fallbacks |
 | Font weights | regular `400`, medium `500`, semibold `600` |
 | Letter spacing | body `-0.005em`, controls `-0.02em`, display `-0.045em`, section `-0.035em` |
@@ -129,7 +126,7 @@ Visual references so far have been screenshots attached in the project conversat
 
 ## 7. Page sections and status
 
-1. **Header/navigation — needs polish / partially inactive.** Brand logo and “Get early access” CTA are active. The primary navigation and mobile menu button markup are currently commented out; the associated JS is guarded and does nothing without those elements.
+1. **Header/navigation — intentionally partial.** Navigation stays off until further notice. Brand logo and “Get early access” CTA are active. The primary navigation and mobile menu button markup are currently commented out; the associated JS is guarded and does nothing without those elements.
 2. **Hero — implemented, needs final visual review.** Copy, status, dual CTAs, trust note, landscape, and dashboard artwork are present. The dashboard visual is a CSS frame using `dashboard-hero-img.png`; its wrapper still has “pending” wording in its accessible label, which may be stale.
 3. **Product vision (`#product`) — implemented with illustrative UI; final feature art may still be pending.** Four cards cover programme setup, attention signals, progress, and reporting. Their visuals are hand-built HTML/CSS sample dashboards, not live product UI. Several labels explicitly say “SAMPLE” or “ILLUSTRATIVE”. The repository does not contain a separate feature-section screenshot asset. Confirm which final image/visual is expected before replacing these.
 4. **Programme Loop (`#workflow`) — implemented.** Five stages in order: Run → Track → Detect → Act → Report. Desktop uses five SVG progress arc paths, a sticky scroll sequence, persistent completion markers, and stage-specific 3D icons. Mobile and reduced-motion layouts show the five stages in a static vertical list with the same icons.
@@ -151,23 +148,17 @@ There are no other intentionally blank section placeholders identified in the cu
 
 ## 9. Known issues and risks
 
-- **Deployment ambiguity:** `static.yml` deploys GitHub Pages from `main`, while the project context identifies Vercel as the live host and `vercel.json` has an image rewrite. Confirm the production source and decide whether both deployment pipelines should remain enabled.
-- **Stale README:** `README.md` says the form is a local demo with no submission endpoint and describes capabilities as part of the active site. Both statements conflict with the inspected current implementation.
 - **Navigation is commented out:** The header currently has only the brand and CTA; menu/navigation controls and their link to the inactive capabilities section are comments. The menu JavaScript remains but safely exits when markup is absent.
-- **Open Graph type mismatch:** `index.html` references an `.jpeg` image but declares `og:image:type` as `image/png`. Verify the actual file format and align metadata. No canonical `<link>` or `og:url` is present in the inspected head.
 - **Feature visual expectation unresolved:** Four card illustrations are custom sample UI, not a supplied final feature image. Do not invent or silently substitute an asset.
 - **No automated project test suite or linter.** Only manual checks and `node --check`/`git diff --check` are available without adding tooling.
 - **Form and layout browser verification:** Do not assume the Formspree endpoint, all mobile breakpoints, reduced-motion behavior, or complete workflow reverse-scroll have been freshly tested; verify before release.
-- **Token cleanup opportunity:** `--border` is declared twice in `:root`; the second value (`#e4e7ec`) currently wins.
 
 ## 10. Prioritized next steps
 
-1. Confirm production deployment ownership: Vercel project/repo/branch/domain and whether the GitHub Pages `main` workflow is intentional. Then document the actual preview and deployment URLs/triggers.
-2. Update `README.md` so it matches the current Formspree integration and the intentionally inactive capability section.
-3. Resolve the requested feature visual with the product/design team: identify the approved image or confirm that the current four HTML/CSS mockups are the intended shipped visuals.
-4. Test the early-access form against the real Formspree endpoint with a designated test submission; check success, validation, failure retry, consent payload, and the Formspree dashboard receipt.
-5. Run a desktop/tablet/mobile browser pass on the active page: header (including the currently absent menu), product-card visuals, workflow forward/reverse and final arc, early-access form, footer social links, keyboard focus, and reduced motion. Check for overflow and console/network errors.
-6. Verify the OG image file's actual encoding/dimensions and correct the `image/jpeg` vs `image/png` metadata discrepancy. Test the public social preview URL after the deployment route is confirmed.
-7. Consider small cleanup after behavior is verified: remove stale hero “pending” accessible wording if the artwork is final, reconcile the duplicate border token, and remove or re-enable dormant navigation markup/JS intentionally.
+1. Resolve the requested feature visual with the product/design team: identify the approved image or confirm that the current four HTML/CSS mockups are the intended shipped visuals.
+2. Test the early-access form against the real Formspree endpoint with a designated test submission; check success, validation, failure retry, consent payload, and the Formspree dashboard receipt.
+3. Run a desktop/tablet/mobile browser pass on the active page: header (including the currently absent menu), product-card visuals, workflow forward/reverse and final arc, early-access form, footer social links, keyboard focus, and reduced motion. Check for overflow and console/network errors.
+4. Test the public social preview for synqop.com once the fork is synced (metadata now declares `image/jpeg`, 1200x630, with canonical and `og:url`).
+5. Consider small cleanup after behavior is verified: remove stale hero “pending” accessible wording if the artwork is final, and remove or re-enable dormant navigation markup/JS intentionally once navigation is decided.
 
-Open confirmations are limited to the intended production deployment target, the final feature-section artwork, whether primary navigation should be active, and the OG image's actual encoding. The project can be run locally without those answers.
+Resolved on 11 Nov 2026: production deployment (Abdulhameed's fork), Pages workflow stays, primary navigation stays off for now, OG image is a 1200x630 JPEG. Still open: the final feature-section artwork.

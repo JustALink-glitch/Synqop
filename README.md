@@ -1,45 +1,49 @@
 # Synqop
 
-A responsive pre-launch marketing website for Synqop, a programme operations SaaS platform. The site includes an illustrative dashboard, product workflow, capabilities, and an early-access interest form. The form is a local demo and has no submission endpoint.
+A responsive pre-launch marketing website for Synqop, a programme operations SaaS platform. The page covers the product direction, illustrative product UI, the five-stage Programme Loop, and an early-access interest form that submits to Formspree.
 
-This is a static HTML, CSS, and JavaScript project. It is a pre-launch marketing website, not the complete Synqop SaaS application.
+This is a static HTML, CSS, and JavaScript project with no dependencies or build step. It is the marketing site, not the Synqop SaaS application.
+
+See `HANDOFF.md` for the full developer handoff: design tokens, section status, conventions, and known issues.
 
 ## Structure
 
 ```text
 Synqop/
-├── index.html
+├── index.html              # the complete single-page site and metadata
 ├── public/
-│   ├── fonts/
-│   ├── icons/
-│   └── images/
+│   ├── icons/              # favicon and app icons
+│   └── images/             # logo and social preview image
 ├── src/
-│   ├── assets/
-│   │   ├── fonts/
-│   │   ├── icons/
-│   │   └── images/
-│   ├── components/
-│   ├── scripts/
-│   │   └── script.js
-│   ├── sections/
-│   ├── styles/
-│   │   └── styles.css
-│   └── utils/
-├── docs/
-├── .gitignore
-└── README.md
+│   ├── assets/images/      # hero, footer, and workflow artwork
+│   ├── scripts/script.js   # interactions, workflow animation, form submission
+│   └── styles/styles.css   # tokens, layout, responsive styles, illustrations
+├── docs/sections/          # inactive capabilities section, kept for later restoration
+├── robots.txt
+├── sitemap.xml
+└── vercel.json
 ```
-
-The empty directories are placeholders for relevant assets or code as the project grows. There is no package manifest, lockfile, build configuration, or dependency to install at this stage.
 
 ## Run locally
 
-Open `index.html` in a browser, or from this directory start a simple local server with Python:
+From this directory, start a simple local server:
 
 ```powershell
 py -m http.server 8000
 ```
 
-Then open <http://localhost:8000>.
+Then open <http://localhost:8000>. There is nothing to install or build.
 
-No `npm install` or build command applies because this project has no package manager configuration or build step.
+## Early-access form
+
+The form posts to Formspree (`https://formspree.io/f/meaelpwk`) with `fetch`. It sends `email`, `organisation`, and `consent`. The endpoint is public configuration, not a secret.
+
+## Inactive sections
+
+- **Capabilities** ("Programme operations, in one connected place") is intentionally removed from the live page. Its markup and styles are saved in `docs/sections/` with restoration notes.
+- **Primary navigation** is commented out in the header for now. The header shows only the logo and the "Get early access" button.
+
+## Deployment
+
+- **synqop.com** is served from a Vercel project on a collaborator's account, built from a fork of this repository. After pushing to `main` here, the fork must be synced (pulled) for changes to reach synqop.com.
+- This repository also deploys automatically on every push to `main` to a Vercel preview project (`kaine-projects`) and to GitHub Pages via `.github/workflows/static.yml`. Neither of these serves the production domain.
