@@ -137,13 +137,16 @@
           </div>
         </div>
 
-        <div class="hero-visual hero-visual--landscape"
-          role="group" aria-label="Product image area with landscape background pending">
+        <div class="hero-visual hero-visual--landscape">
           <div class="hero-product-frame">
-            <div class="hero-product-placeholder"
-              role="img"
-              aria-label="Synqop Admin Dashboard">
-            </div>
+            <img
+              class="hero-product-image"
+              src="src/assets/images/product/hero-programme-overview.webp"
+              alt="Synqop Programme overview dashboard showing active cohorts, participants, attendance, and who needs attention"
+              width="1860"
+              height="2000"
+              fetchpriority="high"
+            />
           </div>
         </div>
       </section>
@@ -173,37 +176,8 @@
                 Bring programmes, cohorts, participants, trainers, and delivery
                 details together in one operational picture.
               </p>
-              <div class="card-illustration illustration-connected" data-illustration-slot="connected-delivery" aria-hidden="true">
-                <div class="mini-workspace">
-                  <div class="mini-workspace-topbar visual-reveal">
-                    <span class="mini-brand-mark"></span>
-                    <span>Synqop workspace</span>
-                    <span class="mini-sample-tag">SAMPLE</span>
-                  </div>
-                  <div class="mini-workspace-content">
-                    <div class="mini-view-heading visual-reveal">
-                      <div><span class="mini-overline">DEMO WORKSPACE</span><strong>Programmes</strong></div>
-                      <span class="mini-action-dot">+</span>
-                    </div>
-                    <div class="mini-stat-strip visual-reveal">
-                      <div><strong>04</strong><span>programmes</span></div>
-                      <div><strong>12</strong><span>participants</span></div>
-                      <div><strong>06</strong><span>team members</span></div>
-                    </div>
-                    <div class="mini-programme-list">
-                      <div class="mini-list-heading visual-reveal"><span>Programme</span><span>Status</span></div>
-                      <div class="mini-programme-row visual-reveal">
-                        <span class="mini-row-symbol symbol-blue">A</span><span class="mini-row-copy"><strong>Launch cohort</strong><small>6 participants · 2 trainers</small></span><span class="mini-status status-blue">Active</span>
-                      </div>
-                      <div class="mini-programme-row visual-reveal">
-                        <span class="mini-row-symbol symbol-violet">B</span><span class="mini-row-copy"><strong>Skills pathway</strong><small>4 participants · 2 trainers</small></span><span class="mini-status status-green">On track</span>
-                      </div>
-                      <div class="mini-programme-row visual-reveal">
-                        <span class="mini-row-symbol symbol-cyan">C</span><span class="mini-row-copy"><strong>Team workshops</strong><small>2 participants · 2 trainers</small></span><span class="mini-status status-muted">Planning</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="card-illustration illustration-connected" data-illustration-slot="connected-delivery">
+                <img class="card-ui visual-reveal" src="src/assets/images/product/feature-cohorts.webp" alt="Synqop cohorts view with active cohorts, participants, delivery progress and attendance" width="1280" height="1064" loading="lazy" decoding="async" />
               </div>
             </article>
 
@@ -213,28 +187,8 @@
                 See the signals behind a participant status, so teams can review
                 context and decide what to do next.
               </p>
-              <div class="card-illustration illustration-signals" data-illustration-slot="transparent-signals" aria-hidden="true">
-                <div class="mini-monitor">
-                  <div class="mini-monitor-heading visual-reveal">
-                    <div><span class="mini-overline">SAMPLE COHORT</span><strong>Participant overview</strong></div>
-                    <span class="mini-range-pill">This month⌄</span>
-                  </div>
-                  <div class="mini-participant-row visual-reveal">
-                    <span class="mini-avatar avatar-blue">JM</span>
-                    <span class="mini-row-copy"><strong>Participant A</strong><small>Attendance</small></span>
-                    <span class="mini-participant-progress"><i class="mini-progress-track"><i class="mini-progress-fill" style="--progress: 86%"></i></i><b>86%</b></span>
-                  </div>
-                  <div class="mini-participant-row visual-reveal">
-                    <span class="mini-avatar avatar-violet">RK</span>
-                    <span class="mini-row-copy"><strong>Participant B</strong><small>Assignments</small></span>
-                    <span class="mini-participant-progress"><i class="mini-progress-track"><i class="mini-progress-fill" style="--progress: 68%"></i></i><b>68%</b></span>
-                  </div>
-                  <div class="mini-followup-alert visual-reveal">
-                    <span class="mini-alert-mark">!</span>
-                    <span class="mini-row-copy"><strong>Follow-up to review</strong><small>One missed session · sample signal</small></span>
-                    <span class="mini-alert-link">Review</span>
-                  </div>
-                </div>
+              <div class="card-illustration illustration-signals" data-illustration-slot="transparent-signals">
+                <img class="card-ui visual-reveal" src="src/assets/images/product/feature-attention.webp" alt="Synqop Needs attention flag showing why a participant was flagged" width="1280" height="662" loading="lazy" decoding="async" />
               </div>
             </article>
             <article class="product-card" data-reveal>
@@ -243,22 +197,8 @@
                 Keep attendance, assignments, and participant progress easier
                 to follow across your programmes.
               </p>
-              <div class="card-illustration illustration-progress" data-illustration-slot="progress-tracking" aria-hidden="true">
-                <div class="mini-progress-view">
-                  <div class="mini-progress-heading visual-reveal">
-                    <div><span class="mini-overline">ILLUSTRATIVE COHORT</span><strong>Progress snapshot</strong></div>
-                    <span class="mini-week-pill">Week 04</span>
-                  </div>
-                  <div class="mini-progress-summary visual-reveal">
-                    <div><strong>72%</strong><span>overall progress</span></div>
-                    <div class="mini-completion-ring"><span>8<small>/11</small></span></div>
-                  </div>
-                  <div class="mini-progress-metrics visual-reveal">
-                    <div class="mini-progress-line"><span>Assignments</span><b>8 of 11</b><i class="mini-progress-track"><i class="mini-progress-fill" style="--progress: 72%"></i></i></div>
-                    <div class="mini-progress-line"><span>Attendance</span><b>91%</b><i class="mini-progress-track"><i class="mini-progress-fill fill-cyan" style="--progress: 91%"></i></i></div>
-                  </div>
-                  <div class="mini-activity visual-reveal"><span class="mini-activity-dot"></span><span><strong>Recent activity</strong><small>Module 3 completed · sample entry</small></span><time>Today</time></div>
-                </div>
+              <div class="card-illustration illustration-progress" data-illustration-slot="progress-tracking">
+                <img class="card-ui visual-reveal" src="src/assets/images/product/feature-today.webp" alt="Synqop trainer view of today's session and grading queue" width="1280" height="858" loading="lazy" decoding="async" />
               </div>
             </article>
             <article class="product-card" data-reveal>
@@ -267,26 +207,8 @@
                 Bring programme activity and progress into a clearer view to
                 support organisational decisions.
               </p>
-              <div class="card-illustration illustration-reporting" data-illustration-slot="programme-reporting" aria-hidden="true">
-                <div class="mini-report">
-                  <div class="mini-report-heading visual-reveal">
-                    <div><span class="mini-overline">SAMPLE REPORT</span><strong>Programme overview</strong></div>
-                    <span class="mini-range-pill">Last 8 weeks⌄</span>
-                  </div>
-                  <div class="mini-report-metrics visual-reveal">
-                    <div><span>Completion</span><strong>78<small>%</small></strong><em>Across sample cohorts</em></div>
-                    <div><span>Sessions</span><strong>24</strong><em>Of 30 planned</em></div>
-                    <div><span>On track</span><strong>86<small>%</small></strong><em>Sample participants</em></div>
-                  </div>
-                  <div class="mini-chart-panel visual-reveal">
-                    <div class="mini-chart-title"><strong>Progress over time</strong><span>Illustrative</span></div>
-                    <div class="mini-chart">
-                      <span class="mini-chart-grid grid-one"></span><span class="mini-chart-grid grid-two"></span>
-                      <i class="mini-chart-bar" style="--bar-height: 38%"></i><i class="mini-chart-bar" style="--bar-height: 52%"></i><i class="mini-chart-bar" style="--bar-height: 46%"></i><i class="mini-chart-bar" style="--bar-height: 68%"></i><i class="mini-chart-bar" style="--bar-height: 78%"></i><i class="mini-chart-bar" style="--bar-height: 91%"></i>
-                    </div>
-                    <div class="mini-chart-labels"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span></div>
-                  </div>
-                </div>
+              <div class="card-illustration illustration-reporting" data-illustration-slot="programme-reporting">
+                <img class="card-ui visual-reveal" src="src/assets/images/product/feature-reports.webp" alt="Synqop report options for cohort summary, attendance, and assignments" width="1280" height="584" loading="lazy" decoding="async" />
               </div>
             </article>
           </div>
@@ -314,7 +236,7 @@
                   role="group"
                   aria-label="Five stages in the Synqop programme workflow"
                 >
-                  <svg class="loop-orbit-svg" viewBox="0 0 100 100" aria-hidden="true">
+                  <svg class="loop-orbit-svg" viewBox="0 0 100 100">
                     <circle class="orbit-track" cx="50" cy="50" r="48" />
                     <path class="orbit-progress-segment" data-progress-arc="0" d="M50 2 A48 48 0 0 1 95.65 35.17" />
                     <path class="orbit-progress-segment" data-progress-arc="1" d="M95.65 35.17 A48 48 0 0 1 78.21 88.83" />
@@ -349,42 +271,42 @@
                   <div class="loop-core" aria-live="polite" aria-atomic="true">
                     <div class="loop-visual is-active" data-visual="0" aria-hidden="false">
                       <img
-                        src="src/assets/images/workflow-3d-icons/run.png"
-                        alt="3D illustration representing programme setup and organisation"
-                        width="1374"
-                        height="1145"
+                        src="src/assets/images/brand/petal-progress/run.svg"
+                        alt="Synqop petal mark, first petal lit for Run"
+                        width="68"
+                        height="68"
                       />
                     </div>
-                    <div class="loop-visual" data-visual="1" aria-hidden="true">
+                    <div class="loop-visual" data-visual="1">
                       <img
-                        src="src/assets/images/workflow-3d-icons/track.png"
-                        alt="3D illustration representing programme activity and progress tracking"
-                        width="1353"
-                        height="1162"
+                        src="src/assets/images/brand/petal-progress/track.svg"
+                        alt="Synqop petal mark, second petal lit for Track"
+                        width="68"
+                        height="68"
                       />
                     </div>
-                    <div class="loop-visual" data-visual="2" aria-hidden="true">
+                    <div class="loop-visual" data-visual="2">
                       <img
-                        src="src/assets/images/workflow-3d-icons/detect.png"
-                        alt="3D illustration representing the detection of programme risks and issues"
-                        width="1378"
-                        height="1141"
+                        src="src/assets/images/brand/petal-progress/detect.svg"
+                        alt="Synqop petal mark, turned petal lit for Detect"
+                        width="68"
+                        height="68"
                       />
                     </div>
-                    <div class="loop-visual" data-visual="3" aria-hidden="true">
+                    <div class="loop-visual" data-visual="3">
                       <img
-                        src="src/assets/images/workflow-3d-icons/act.png"
-                        alt="3D illustration representing taking action on programme insights"
-                        width="1619"
-                        height="971"
+                        src="src/assets/images/brand/petal-progress/act.svg"
+                        alt="Synqop petal mark, third petal lit for Act"
+                        width="68"
+                        height="68"
                       />
                     </div>
-                    <div class="loop-visual" data-visual="4" aria-hidden="true">
+                    <div class="loop-visual" data-visual="4">
                       <img
-                        src="src/assets/images/workflow-3d-icons/report.png"
-                        alt="3D illustration representing programme reports and outcomes"
-                        width="1377"
-                        height="1142"
+                        src="src/assets/images/brand/petal-progress/report.svg"
+                        alt="Synqop petal mark, all petals lit for Report"
+                        width="68"
+                        height="68"
                       />
                     </div>
                     <div class="loop-stage-copy" data-loop-copy>
@@ -404,10 +326,10 @@
               <span class="static-marker" aria-hidden="true"></span>
               <div class="static-stage-content">
                 <img
-                  src="src/assets/images/workflow-3d-icons/run.png"
-                  alt="3D illustration representing programme setup and organisation"
-                  width="1374"
-                  height="1145"
+                  src="src/assets/images/brand/petal-progress/run.svg"
+                  alt="Synqop petal mark, first petal lit for Run"
+                  width="68"
+                  height="68"
                 />
                 <h3>Run</h3>
                 <p>Organise programmes, cohorts, people, and planned activities.</p>
@@ -417,10 +339,10 @@
               <span class="static-marker" aria-hidden="true"></span>
               <div class="static-stage-content">
                 <img
-                  src="src/assets/images/workflow-3d-icons/track.png"
-                  alt="3D illustration representing programme activity and progress tracking"
-                  width="1353"
-                  height="1162"
+                  src="src/assets/images/brand/petal-progress/track.svg"
+                  alt="Synqop petal mark, second petal lit for Track"
+                  width="68"
+                  height="68"
                 />
                 <h3>Track</h3>
                 <p>Keep sessions, attendance, and assignments in view as work happens.</p>
@@ -430,10 +352,10 @@
               <span class="static-marker" aria-hidden="true"></span>
               <div class="static-stage-content">
                 <img
-                  src="src/assets/images/workflow-3d-icons/detect.png"
-                  alt="3D illustration representing the detection of programme risks and issues"
-                  width="1378"
-                  height="1141"
+                  src="src/assets/images/brand/petal-progress/detect.svg"
+                  alt="Synqop petal mark, turned petal lit for Detect"
+                  width="68"
+                  height="68"
                 />
                 <h3>Detect</h3>
                 <p>Notice patterns and signals that may need a closer look.</p>
@@ -443,10 +365,10 @@
               <span class="static-marker" aria-hidden="true"></span>
               <div class="static-stage-content">
                 <img
-                  src="src/assets/images/workflow-3d-icons/act.png"
-                  alt="3D illustration representing taking action on programme insights"
-                  width="1619"
-                  height="971"
+                  src="src/assets/images/brand/petal-progress/act.svg"
+                  alt="Synqop petal mark, third petal lit for Act"
+                  width="68"
+                  height="68"
                 />
                 <h3>Act</h3>
                 <p>Coordinate a considered follow-up with the right people.</p>
@@ -456,10 +378,10 @@
               <span class="static-marker" aria-hidden="true"></span>
               <div class="static-stage-content">
                 <img
-                  src="src/assets/images/workflow-3d-icons/report.png"
-                  alt="3D illustration representing programme reports and outcomes"
-                  width="1377"
-                  height="1142"
+                  src="src/assets/images/brand/petal-progress/report.svg"
+                  alt="Synqop petal mark, all petals lit for Report"
+                  width="68"
+                  height="68"
                 />
                 <h3>Report</h3>
                 <p>Bring operational details together into useful summaries.</p>
@@ -578,7 +500,7 @@
           <a class="brand" href="#top" aria-label="Synqop home">
             <img
               class="brand-logo"
-              src="src/assets/images/Synqop Main Logo white.svg"
+              src="src/assets/images/brand/synqop-logo-on-dark.svg"
               alt="Synqop"
             />
           </a>
@@ -636,7 +558,7 @@
         <div class="container footer-wordmark">
           <img
             class="footer-wordmark-image"
-            src="src/assets/images/Synqop White Logo.svg"
+            src="src/assets/images/brand/synqop-logo-white.svg"
             alt=""
             aria-hidden="true"
           />
