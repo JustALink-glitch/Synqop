@@ -1800,7 +1800,7 @@ h1 {
 
 /* Join the pilot dialog */
 .pilot-dialog {
-  width: min(520px, calc(100% - 32px));
+  width: min(560px, calc(100% - 32px));
   max-width: none;
   max-height: calc(100dvh - 48px);
   margin: auto;
@@ -1812,43 +1812,66 @@ h1 {
   overflow: visible;
 }
 .pilot-dialog::backdrop {
-  background: rgba(14, 19, 26, 0.56);
+  background: rgba(14, 19, 26, 0.6);
   backdrop-filter: blur(2px);
 }
-.pilot-dialog .interest-form {
+.pilot-dialog-card {
   max-height: calc(100dvh - 48px);
   overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--white);
   border-radius: var(--radius-lg);
-  box-shadow: 0 30px 80px rgba(14, 19, 26, 0.28);
+  box-shadow: 0 30px 80px rgba(14, 19, 26, 0.32);
 }
-.pilot-dialog .form-heading {
-  align-items: flex-start;
-  justify-content: space-between;
+.pilot-dialog-header {
+  position: relative;
+  background: #0e131a;
+  color: var(--white);
 }
-.pilot-dialog .form-heading > div {
-  display: grid;
-  gap: 6px;
+.pilot-dialog-band {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pilot-dialog-heading {
+  position: relative;
+  padding: 32px clamp(24px, 4.5vw, 40px) 36px;
+}
+.pilot-dialog-heading h2 {
+  margin: 0 48px 8px 0;
+  color: var(--white);
+  font-size: clamp(28px, 3vw, 34px);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.1;
+  letter-spacing: var(--letter-spacing-section);
+}
+.pilot-dialog-heading p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 15px;
+  line-height: 1.5;
 }
 .pilot-dialog-close {
-  flex: none;
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  z-index: 1;
   display: grid;
   place-items: center;
   width: 40px;
   height: 40px;
-  margin: -6px -8px 0 0;
   border: 0;
   border-radius: 50%;
-  background: transparent;
-  color: var(--muted);
+  background: #0e131a;
+  color: var(--white);
   cursor: pointer;
+  transition: background 160ms ease;
 }
 .pilot-dialog-close:hover {
-  background: var(--color-neutral);
-  color: var(--ink);
+  background: #242e3c;
 }
 .pilot-dialog-close:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid #41c7fd;
   outline-offset: 2px;
 }
 .pilot-dialog-close svg {
@@ -1858,6 +1881,17 @@ h1 {
   stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: round;
+}
+.pilot-dialog .interest-form {
+  max-width: none;
+  margin: 0;
+  padding: 32px clamp(24px, 4.5vw, 40px) 36px;
+  background: var(--white);
+  border-radius: 0;
+  box-shadow: none;
+}
+.pilot-dialog .interest-form label:first-of-type {
+  margin-top: 0;
 }
 .pilot-dialog .form-submit {
   width: 100%;
@@ -1899,25 +1933,24 @@ html.pilot-dialog-open {
     width: 100%;
     max-height: calc(100dvh - 24px);
     margin: auto 0 0;
-    border-radius: 28px 28px 0 0;
+    border-radius: 24px 24px 0 0;
+  }
+  .pilot-dialog-card {
+    max-height: calc(100dvh - 24px);
+    border-radius: 24px 24px 0 0;
+  }
+  .pilot-dialog-heading {
+    padding: 24px 20px 28px;
+  }
+  .pilot-dialog-heading h2 {
+    font-size: 26px;
   }
   .pilot-dialog .interest-form {
-    max-width: none;
-    max-height: calc(100dvh - 24px);
-    padding: 12px 20px calc(24px + env(safe-area-inset-bottom));
-    border-radius: 28px 28px 0 0;
+    padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
   }
-  .pilot-dialog .interest-form::before {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 4px;
-    margin: 0 auto 20px;
-    border-radius: 2px;
-    background: var(--border);
-  }
-  .pilot-dialog .form-heading {
-    margin-bottom: 16px;
+  .pilot-dialog-close {
+    top: 16px;
+    right: 12px;
   }
 }
 @media (max-width: 680px) and (prefers-reduced-motion: no-preference) {

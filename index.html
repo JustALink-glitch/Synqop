@@ -426,74 +426,83 @@
     </main>
 
     <dialog class="pilot-dialog" id="join-pilot" aria-labelledby="pilot-dialog-title">
-      <form
-        class="interest-form"
-        id="interest-form"
-        action="https://formspree.io/f/meaelpwk"
-        method="POST"
-        aria-describedby="form-status"
-      >
-        <div class="form-heading">
-          <div>
-            <b id="pilot-dialog-title">Join the pilot</b>
-            <small>Tell us about your organisation. It takes less than a minute.</small>
-          </div>
-          <button class="pilot-dialog-close" type="button" data-close-pilot aria-label="Close">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
-          </button>
-        </div>
-        <input type="hidden" name="_subject" value="New Synqop pilot request" />
-        <label for="email">Work email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          placeholder="you@organisation.com"
-          required
-          aria-describedby="email-error"
-        />
-        <span class="field-error" id="email-error"></span>
-        <label for="organisation">Organisation name</label>
-        <input
-          id="organisation"
-          name="organisation"
-          autocomplete="organization"
-          placeholder="Your organisation"
-          required
-          aria-describedby="org-error"
-        />
-        <span class="field-error" id="org-error"></span>
-        <button class="button form-submit" type="submit">
-          <span class="button-label-window">
-            <span class="button-label-stack">
-              <span class="button-label">Request to join</span>
-              <span class="button-label button-label-duplicate" aria-hidden="true">Request to join</span>
-            </span>
-          </span>
-        </button>
-
-        <div class="form-consent">
-          <input
-            class="form-consent-checkbox"
-            id="consent"
-            name="consent"
-            type="checkbox"
-            value="agreed"
-            required
+      <div class="pilot-dialog-card">
+        <header class="pilot-dialog-header">
+          <img
+            class="pilot-dialog-band"
+            src="src/assets/images/brand/petal-band.svg"
+            alt=""
+            width="1280"
+            height="160"
           />
-          <label for="consent">
-            By checking this box, you agree to receive pilot programme updates
-            and communications from Synqop.
-          </label>
-        </div>
-        <div
-          id="form-status"
-          class="form-status"
-          role="status"
-          aria-live="polite"
-        ></div>
-      </form>
+          <div class="pilot-dialog-heading">
+            <button class="pilot-dialog-close" type="button" data-close-pilot aria-label="Close">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
+            </button>
+            <h2 id="pilot-dialog-title">Join the pilot</h2>
+            <p>Tell us about your organisation. It takes less than a minute.</p>
+          </div>
+        </header>
+        <form
+          class="interest-form"
+          id="interest-form"
+          action="https://formspree.io/f/meaelpwk"
+          method="POST"
+          aria-describedby="form-status"
+        >
+          <input type="hidden" name="_subject" value="New Synqop pilot request" />
+          <label for="email">Work email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="you@organisation.com"
+            required
+            aria-describedby="email-error"
+          />
+          <span class="field-error" id="email-error"></span>
+          <label for="organisation">Organisation name</label>
+          <input
+            id="organisation"
+            name="organisation"
+            autocomplete="organization"
+            placeholder="Your organisation"
+            required
+            aria-describedby="org-error"
+          />
+          <span class="field-error" id="org-error"></span>
+          <button class="button form-submit" type="submit">
+            <span class="button-label-window">
+              <span class="button-label-stack">
+                <span class="button-label">Request to join</span>
+                <span class="button-label button-label-duplicate" aria-hidden="true">Request to join</span>
+              </span>
+            </span>
+          </button>
+
+          <div class="form-consent">
+            <input
+              class="form-consent-checkbox"
+              id="consent"
+              name="consent"
+              type="checkbox"
+              value="agreed"
+              required
+            />
+            <label for="consent">
+              By checking this box, you agree to receive pilot programme updates
+              and communications from Synqop.
+            </label>
+          </div>
+          <div
+            id="form-status"
+            class="form-status"
+            role="status"
+            aria-live="polite"
+          ></div>
+        </form>
+      </div>
     </dialog>
 
     <footer class="site-footer" id="footer">
