@@ -4,9 +4,9 @@ Last inspected: 11 November 2026. Repository state before this handoff: clean `m
 
 ## 1. Project overview
 
-Synqop is a pre-launch programme-operations SaaS product. This repository contains its public marketing and early-access website, not the Synqop application itself. The page explains the product direction, shows illustrative product UI, presents a five-stage Programme Loop, collects early-access interest through Formspree, and provides footer links and status.
+Synqop is a programme-operations SaaS product, now in pilot. This repository contains its public marketing website, not the Synqop application itself. The page explains the product, shows real product UI from the Synqop UI Figma file, presents a five-stage Programme Loop, invites organisations to join the pilot through a Formspree form in a modal, and provides footer links and status.
 
-The static landing page is substantially implemented: responsive hero and product cards, a scroll-driven desktop workflow with 3D stage artwork and a mobile/reduced-motion stage list, an early-access form, and the dark footer with social links. The capability section called “Programme operations, in one connected place” is intentionally removed from the active page and preserved under `docs/sections/`. The product cards currently contain handcrafted HTML/CSS sample dashboard illustrations rather than final product screenshots. The form is wired to Formspree, but a successful live submission was not verified during this handoff. Deployment configuration needs clarification because the repository includes both Vercel configuration and an active GitHub Pages workflow.
+The static landing page is implemented: responsive hero showing the Programme overview admin screen, four product cards with real UI panels, a scroll-driven desktop Programme Loop using the brand petal-progress marks (static list on mobile and reduced motion), a blue "We're looking for pilot partners" section, a Join the pilot dialog (bottom sheet on mobile), and the dark footer with social links. Branding follows the Synqop Marketing Figma file (Branding page: logo masters, petal progress, palette). The capability section called “Programme operations, in one connected place” is intentionally removed from the active page and preserved under `docs/sections/`. The form is wired to Formspree, but a successful live submission has not been verified.
 
 ## 2. Access, repository, and deployment
 
@@ -31,7 +31,7 @@ The static landing page is substantially implemented: responsive hero and produc
 - Icons: inline SVG and CSS/HTML illustrations; no icon library.
 - Animation: CSS transitions/keyframes and custom JavaScript; no animation library.
 - Form service: Formspree endpoint `https://formspree.io/f/meaelpwk`, submitted with `fetch` from the browser. The endpoint is public configuration, not a private API key.
-- Footer social links: Instagram `https://www.instagram.com/synqop?mdxt=bmcyazgwYWNlc2Z2&utm_source=qr`, X `https://x.com/synqop?s=11`, and LinkedIn `https://www.linkedin.com/company/synqop-platform/`.
+- Footer social links: Instagram `https://www.instagram.com/usesynqop/`, X `https://x.com/usesynqop`, and LinkedIn `https://www.linkedin.com/company/usesynqop/` (LinkedIn slug assumed from the @usesynqop handle; confirm it resolves).
 - Analytics/error reporting: none found in the checked-in page.
 - Node: not required by the website. The local environment reported Node `v24.15.0` during inspection, but the project does not pin or require a Node version.
 - Environment variables: none required by the current static page. `.gitignore` excludes `.env` and `.env.*` (except `.env.example`). No `.env.example` is present.
@@ -79,14 +79,18 @@ Synqop/
 │   ├── icons/                         # favicon, Apple touch icon, 192px and 512px icons
 │   └── images/
 │       ├── og-image.jpeg              # social preview artwork
-│       └── synqop-logo.svg            # public main logo
+│       └── synqop-logo.svg            # main logo, colour horizontal (Figma 64:800), used in header
 └── src/
     ├── assets/images/
-    │   ├── dashboard-hero-img.png     # dashboard visual used by the hero CSS
     │   ├── landscape.png              # hero landscape artwork
-    │   ├── Synqop Main Logo white.svg  # white logo used in footer
-    │   ├── Synqop White Logo.svg       # oversized decorative footer wordmark
-    │   └── workflow-3d-icons/         # run, track, detect, act, report PNGs
+    │   ├── brand/
+    │   │   ├── synqop-logo-on-dark.svg  # colour-on-dark horizontal logo, footer
+    │   │   ├── synqop-logo-white.svg    # white horizontal logo, oversized footer wordmark
+    │   │   ├── synqop-symbol.svg        # colour symbol (also the favicon source)
+    │   │   └── petal-progress/          # run, track, detect, act, report SVGs (Programme Loop)
+    │   └── product/                     # WebP renders of real UI from the Synqop UI Figma file
+    │       ├── hero-programme-overview.webp  # Admin "Programme overview" (Figma 20:2), top-left crop
+    │       └── feature-*.webp           # cohorts, attention, today, reports (Landing Page visuals)
     ├── scripts/script.js              # hero/menu/tabs/reveal/form/workflow behavior
     └── styles/styles.css              # design tokens, layout, responsive styles, illustrations
 ```
@@ -126,15 +130,15 @@ Visual references so far have been screenshots attached in the project conversat
 
 ## 7. Page sections and status
 
-1. **Header/navigation — intentionally partial.** Navigation stays off until further notice. Brand logo and “Get early access” CTA are active. The primary navigation and mobile menu button markup are currently commented out; the associated JS is guarded and does nothing without those elements.
-2. **Hero — implemented, needs final visual review.** Copy, status, dual CTAs, trust note, landscape, and dashboard artwork are present. The dashboard visual is a CSS frame using `dashboard-hero-img.png`; its wrapper still has “pending” wording in its accessible label, which may be stale.
-3. **Product vision (`#product`) — implemented with illustrative UI; final feature art may still be pending.** Four cards cover programme setup, attention signals, progress, and reporting. Their visuals are hand-built HTML/CSS sample dashboards, not live product UI. Several labels explicitly say “SAMPLE” or “ILLUSTRATIVE”. The repository does not contain a separate feature-section screenshot asset. Confirm which final image/visual is expected before replacing these.
-4. **Programme Loop (`#workflow`) — implemented.** Five stages in order: Run → Track → Detect → Act → Report. Desktop uses five SVG progress arc paths, a sticky scroll sequence, persistent completion markers, and stage-specific 3D icons. Mobile and reduced-motion layouts show the five stages in a static vertical list with the same icons.
-5. **Early access (`#early-access`) — implemented; live delivery needs verification.** Two required fields (`email`, `organisation`) and required consent (`consent=agreed`) submit to Formspree via `fetch`. The script validates, disables the button while sending, displays status, clears only after success, and preserves entries on failure. Do not claim submission works until a deliberate test is made against Formspree.
-6. **Footer — implemented.** Dark vertical gradient, regular white logo, navigation links, oversized decorative logo, bottom development status/copyright, and three social links (Instagram, X, LinkedIn).
+1. **Header/navigation — intentionally partial.** Navigation stays off until further notice. Brand logo and “Join the pilot” CTA are active. The primary navigation and mobile menu button markup are currently commented out; the associated JS is guarded and does nothing without those elements.
+2. **Hero — implemented.** “Now in pilot” status, copy aimed at training academies, bootcamps and skills-development programmes, “Join the pilot” and “Explore the vision” CTAs, trust note, landscape, and the Programme overview screenshot (`<img class="hero-product-image">`).
+3. **Product vision (`#product`) — implemented.** Four cards: cohorts panel, explainable Needs attention flag, trainer day and grading queue, report options. Cards 1 and 3 span 4 of 10 columns and cards 2 and 4 span 6, so each row's images come out at similar heights. To refresh a panel, re-export the matching Figma node at 2x and replace the WebP.
+4. **Programme Loop (`#workflow`) — implemented.** Five stages in order: Run → Track → Detect → Act → Report. Desktop uses five SVG progress arc paths, a sticky scroll sequence, persistent completion markers, and stage-specific petal-progress marks from the brand file (one petal lit per stage, all lit for Report). Mobile and reduced-motion layouts show the five stages in a static vertical list with the same icons.
+5. **Pilot section (`#pilot`) and Join the pilot dialog (`#join-pilot`) — implemented; live delivery needs verification.** The blue band invites pilot partners. Every `[data-open-pilot]` trigger (header, hero, pilot band, footer) opens a native `<dialog>` holding the form: centred modal on desktop, bottom sheet at 680px and below; Esc, the close button and the backdrop close it, and `/#join-pilot` opens it on load. Two required fields (`email`, `organisation`), required consent (`consent=agreed`) and `_subject` submit to Formspree via `fetch`. The script validates, disables the button while sending, shows status, clears only after success, and preserves entries on failure. The old early-access section was removed. Do not claim submission works until a deliberate test is made against Formspree.
+6. **Footer — implemented.** Dark vertical gradient, colour-on-dark logo, “Now in pilot” tagline, navigation links (including Join the pilot), oversized white wordmark, “Now in pilot” status pill, copyright, and three @usesynqop social links.
 7. **Capabilities — intentionally inactive, preserved.** Saved HTML/CSS are in `docs/sections/`; restoration dependencies and steps are in `docs/sections/README.md`.
 
-There are no other intentionally blank section placeholders identified in the current active DOM. The pending item mentioned previously as “the image for the features section” should be reconciled with the active CSS/HTML sample illustrations and the actual approved design asset before implementation.
+There are no intentionally blank section placeholders in the current active DOM. The feature-section imagery now uses real UI panels from the Synqop UI Figma file.
 
 ## 8. Decisions and conventions
 
@@ -155,10 +159,9 @@ There are no other intentionally blank section placeholders identified in the cu
 
 ## 10. Prioritized next steps
 
-1. Resolve the requested feature visual with the product/design team: identify the approved image or confirm that the current four HTML/CSS mockups are the intended shipped visuals.
-2. Test the early-access form against the real Formspree endpoint with a designated test submission; check success, validation, failure retry, consent payload, and the Formspree dashboard receipt.
-3. Run a desktop/tablet/mobile browser pass on the active page: header (including the currently absent menu), product-card visuals, workflow forward/reverse and final arc, early-access form, footer social links, keyboard focus, and reduced motion. Check for overflow and console/network errors.
-4. Test the public social preview for synqop.com once the fork is synced (metadata now declares `image/jpeg`, 1200x630, with canonical and `og:url`).
-5. Consider small cleanup after behavior is verified: remove stale hero “pending” accessible wording if the artwork is final, and remove or re-enable dormant navigation markup/JS intentionally once navigation is decided.
+1. Test the Join the pilot form against the real Formspree endpoint with a designated test submission; check success, validation, failure retry, consent payload, and the Formspree dashboard receipt.
+2. Run a desktop/tablet/mobile browser pass on the active page: header (including the currently absent menu), product-card visuals, workflow forward/reverse and final arc, the Join the pilot dialog and bottom sheet, footer social links, keyboard focus, and reduced motion. Check for overflow and console/network errors.
+3. Test the public social preview for synqop.com once the fork is synced (metadata now declares `image/jpeg`, 1200x630, with canonical and `og:url`).
+4. Consider small cleanup after behavior is verified: remove or re-enable dormant navigation markup/JS intentionally once navigation is decided.
 
-Resolved on 11 Nov 2026: production deployment (Abdulhameed's fork), Pages workflow stays, primary navigation stays off for now, OG image is a 1200x630 JPEG. Still open: the final feature-section artwork.
+Resolved on 11 Nov 2026: production deployment (Abdulhameed's fork), Pages workflow stays, primary navigation stays off for now, OG image is a 1200x630 JPEG. Resolved later the same day: brand refresh (new logo, real product UI, petal-progress loop icons), pilot launch copy, @usesynqop socials, and the Join the pilot dialog. Still open: switching marketing type from Inter to Geist as the brand guide specifies, and confirming the LinkedIn URL.

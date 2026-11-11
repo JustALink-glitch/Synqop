@@ -1,6 +1,6 @@
 # Synqop
 
-A responsive pre-launch marketing website for Synqop, a programme operations SaaS platform. The page covers the product direction, illustrative product UI, the five-stage Programme Loop, and an early-access interest form that submits to Formspree.
+A responsive marketing website for Synqop, a programme operations SaaS platform now in pilot. The page covers the product, real product UI, the five-stage Programme Loop, and a Join the pilot form (in a modal) that submits to Formspree.
 
 This is a static HTML, CSS, and JavaScript project with no dependencies or build step. It is the marketing site, not the Synqop SaaS application.
 
@@ -34,14 +34,14 @@ py -m http.server 8000
 
 Then open <http://localhost:8000>. There is nothing to install or build.
 
-## Early-access form
+## Join the pilot form
 
-The form posts to Formspree (`https://formspree.io/f/meaelpwk`) with `fetch`. It sends `email`, `organisation`, and `consent`. The endpoint is public configuration, not a secret.
+The form lives in a `<dialog>` (`#join-pilot`) that opens from any `[data-open-pilot]` link: a centred modal on desktop and a bottom sheet on mobile. It posts to Formspree (`https://formspree.io/f/meaelpwk`) with `fetch`. It sends `email`, `organisation`, `consent`, and `_subject`. The endpoint is public configuration, not a secret.
 
 ## Inactive sections
 
 - **Capabilities** ("Programme operations, in one connected place") is intentionally removed from the live page. Its markup and styles are saved in `docs/sections/` with restoration notes.
-- **Primary navigation** is commented out in the header for now. The header shows only the logo and the "Get early access" button.
+- **Primary navigation** is commented out in the header for now. The header shows only the logo and the "Join the pilot" button.
 
 ## Deployment
 

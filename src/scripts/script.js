@@ -148,7 +148,7 @@ form.addEventListener('submit', async (event) => {
     }
 
     formStatus.className = 'form-status success';
-    formStatus.textContent = 'Thanks — your interest has been submitted. We’ll be in touch.';
+    formStatus.textContent = 'Thanks, your request has been sent. We’ll be in touch about the pilot.';
     form.reset();
     email.removeAttribute('aria-invalid');
     organisation.removeAttribute('aria-invalid');
@@ -158,12 +158,69 @@ form.addEventListener('submit', async (event) => {
   } finally {
     isSubmitting = false;
     submitButton.disabled = false;
-    setButtonLabel(submitButton, 'Register interest');
+    setButtonLabel(submitButton, 'Request to join');
     form.removeAttribute('aria-busy');
   }
 });
 
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+// Join the pilot dialog: centred modal on desktop, bottom sheet on mobile.
+(() => {
+  const dialog = document.querySelector('#join-pilot');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+
+  const open = () => {
+    if (dialog.open) return;
+    dialog.showModal();
+    document.documentElement.classList.add('pilot-dialog-open');
+    requestAnimationFrame(() => email.focus({ preventScroll: true }));
+  };
+
+  const close = () => {
+    if (!dialog.open) return;
+    dialog.classList.add('is-closing');
+    const finish = () => {
+      dialog.classList.remove('is-closing');
+      dialog.close();
+    };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      finish();
+    } else {
+      setTimeout(finish, 200);
+    }
+  };
+
+  document.querySelectorAll('[data-open-pilot]').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      open();
+    });
+  });
+
+  dialog.querySelectorAll('[data-close-pilot]').forEach((button) => {
+    button.addEventListener('click', close);
+  });
+
+  // Clicking the backdrop (the dialog element itself, outside the form) closes it.
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) close();
+  });
+
+  dialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    close();
+  });
+
+  dialog.addEventListener('close', () => {
+    document.documentElement.classList.remove('pilot-dialog-open');
+    if (location.hash === '#join-pilot') {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+  });
+
+  if (location.hash === '#join-pilot') open();
+})();
 
 (() => {
   const sequence = document.querySelector('#workflow [data-loop-sequence]');

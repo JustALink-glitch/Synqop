@@ -60,7 +60,7 @@
             alt="Synqop"
           />
         </a>
-        
+
         <!-- <span class="dev-label"><span></span> In development</span> -->
         <!-- <button
           class="menu-toggle"
@@ -76,11 +76,11 @@
           ><a href="#capabilities">Capabilities</a>
         </nav> -->
 
-        <a class="button button-small header-cta" href="#early-access">
+        <a class="button button-small header-cta" href="#join-pilot" data-open-pilot>
           <span class="button-label-window">
             <span class="button-label-stack">
-              <span class="button-label">Get early access</span>
-              <span class="button-label button-label-duplicate" aria-hidden="true">Get early access</span>
+              <span class="button-label">Join the pilot</span>
+              <span class="button-label button-label-duplicate" aria-hidden="true">Join the pilot</span>
             </span>
           </span>
         </a>
@@ -106,17 +106,17 @@
             </h1>
             <p class="lede">
               Synqop helps training academies, bootcamps and skills-development programmes manage cohorts,
-              participants, sessions, assignments, and progress in one place; 
+              participants, sessions, assignments, and progress in one place;
               simplifying programme operations and keeping teams organised.
             </p>
           </div>
 
           <div class="hero-actions">
-            <a class="button" href="#early-access">
+            <a class="button" href="#join-pilot" data-open-pilot>
               <span class="button-label-window">
                 <span class="button-label-stack">
-                  <span class="button-label">Get early access</span>
-                  <span class="button-label button-label-duplicate" aria-hidden="true">Get early access</span>
+                  <span class="button-label">Join the pilot</span>
+                  <span class="button-label button-label-duplicate" aria-hidden="true">Join the pilot</span>
                 </span>
               </span>
             </a>
@@ -163,9 +163,9 @@
             <h2>Good <span>programmes</span> run on<br />good <span>information.</span></h2>
 
             <p class="lede">
-              <!-- Bring programme delivery, participant progress, 
+              <!-- Bring programme delivery, participant progress,
               and important signals into one clearer view.  -->
-              Synqop helps your organisation see what's 
+              Synqop helps your organisation see what's
               happening and where attention is needed.
             </p>
           </div>
@@ -214,7 +214,7 @@
           </div>
         </div>
       </section>
-      
+
       <section class="section workflow-section" id="workflow">
         <div class="container">
           <div class="workflow-intro" data-reveal>
@@ -407,7 +407,7 @@
                 <li>Set up with a member of the Synqop team</li>
                 <li>Your feedback shapes the product roadmap</li>
               </ul>
-              <a class="button button-on-blue" href="#early-access">
+              <a class="button button-on-blue" href="#join-pilot" data-open-pilot>
                 <span class="button-label-window">
                   <span class="button-label-stack">
                     <span class="button-label">Join the pilot</span>
@@ -423,108 +423,78 @@
         </div>
       </section>
 
-      <section class="early-section" id="early-access">
-        <div class="container early-wrap">
-          <div class="early-copy" data-reveal>
-            <p class="eyebrow">HELP SHAPE WHAT'S NEXT</p>
-            <h2>Make room for<br /><span class="lede">better</span> programmes.</h2>
-            <p class="lede">
-              Tell us a little about your organisation. We’d love to keep you in
-              the loop as Synqop takes shape.
-            </p>
-            <div class="early-points">
-              <span>
-                <svg class="benefit-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <rect x="4" y="5" width="16" height="15" rx="2" />
-                  <path d="M8 3v4m8-4v4M4 10h16m-11 4h2m-2 3h6" />
-                </svg>
-                Product updates as we build
-              </span>
-              <span>
-                <svg class="benefit-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-2.5 2v-9.5A7.5 7.5 0 0 1 11 4h1.5a7.5 7.5 0 0 1 7.5 7.5Z" />
-                  <path d="M8 11h8m-8 3h5" />
-                </svg>
-                A chance to share your perspective
-              </span>
-            </div>
-          </div>
-
-          <form
-            class="interest-form"
-            id="interest-form"
-            action="https://formspree.io/f/meaelpwk"
-            method="POST"
-            aria-describedby="form-status"
-            data-reveal
-          >
-            <div class="form-heading">
-              <!-- <img
-                class="form-logo"
-                src="public\icons\icon-192.png"
-                alt="Synqop logo"
-                width="1200"
-                height="400"
-              /> -->
-              <div>
-                <b>Register your interest</b>
-                <small>It takes less than a minute</small>
-              </div>
-            </div>
-            <label for="email">Work email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              placeholder="you@organisation.com"
-              required
-              aria-describedby="email-error"
-            />
-            <span class="field-error" id="email-error"></span>
-            <label for="organisation">Organisation name</label>
-            <input
-              id="organisation"
-              name="organisation"
-              autocomplete="organization"
-              placeholder="Your organisation"
-              required
-              aria-describedby="org-error"
-            />
-            <span class="field-error" id="org-error"></span>
-            <button class="button form-submit" type="submit">
-              <span class="button-label-window">
-                <span class="button-label-stack">
-                  <span class="button-label">Register interest</span>
-                  <span class="button-label button-label-duplicate" aria-hidden="true">Register interest</span>
-                </span>
-              </span>
-            </button>
-
-            <div class="form-consent">
-              <input
-                class="form-consent-checkbox"
-                id="consent"
-                name="consent"
-                type="checkbox"
-                value="agreed"
-                required
-              />
-              <label for="consent">
-                By checking this box, you agree to receive product updates and
-                early-access communications from Synqop.
-              </label>
-            </div>
-            <div
-              id="form-status"
-              class="form-status"
-              role="status"
-              aria-live="polite"
-            ></div>
-          </form>
-        </div>
-      </section>
     </main>
+
+    <dialog class="pilot-dialog" id="join-pilot" aria-labelledby="pilot-dialog-title">
+      <form
+        class="interest-form"
+        id="interest-form"
+        action="https://formspree.io/f/meaelpwk"
+        method="POST"
+        aria-describedby="form-status"
+      >
+        <div class="form-heading">
+          <div>
+            <b id="pilot-dialog-title">Join the pilot</b>
+            <small>Tell us about your organisation. It takes less than a minute.</small>
+          </div>
+          <button class="pilot-dialog-close" type="button" data-close-pilot aria-label="Close">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+        </div>
+        <input type="hidden" name="_subject" value="New Synqop pilot request" />
+        <label for="email">Work email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="you@organisation.com"
+          required
+          aria-describedby="email-error"
+        />
+        <span class="field-error" id="email-error"></span>
+        <label for="organisation">Organisation name</label>
+        <input
+          id="organisation"
+          name="organisation"
+          autocomplete="organization"
+          placeholder="Your organisation"
+          required
+          aria-describedby="org-error"
+        />
+        <span class="field-error" id="org-error"></span>
+        <button class="button form-submit" type="submit">
+          <span class="button-label-window">
+            <span class="button-label-stack">
+              <span class="button-label">Request to join</span>
+              <span class="button-label button-label-duplicate" aria-hidden="true">Request to join</span>
+            </span>
+          </span>
+        </button>
+
+        <div class="form-consent">
+          <input
+            class="form-consent-checkbox"
+            id="consent"
+            name="consent"
+            type="checkbox"
+            value="agreed"
+            required
+          />
+          <label for="consent">
+            By checking this box, you agree to receive pilot programme updates
+            and communications from Synqop.
+          </label>
+        </div>
+        <div
+          id="form-status"
+          class="form-status"
+          role="status"
+          aria-live="polite"
+        ></div>
+      </form>
+    </dialog>
 
     <footer class="site-footer" id="footer">
       <div class="container footer-main">
@@ -583,8 +553,7 @@
           </div>
           <div>
             <b>Get involved</b>
-            <a href="#pilot">Join the pilot</a>
-            <a href="#early-access">Early access</a></div>
+            <a href="#join-pilot" data-open-pilot>Join the pilot</a></div>
         </div>
       </div>
       <div class="footer-end">
