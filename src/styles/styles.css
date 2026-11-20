@@ -941,6 +941,31 @@ h1 {
   color: var(--color-white);
   white-space: nowrap;
 }
+.footer-legal {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.mulfern-badge {
+  display: inline-flex;
+  border-radius: 999px;
+  opacity: 0.88;
+  transition: opacity 160ms ease, transform 160ms var(--ease);
+}
+.mulfern-badge:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+.mulfern-badge:focus-visible {
+  outline: 2px solid var(--color-gradient-secondary);
+  outline-offset: 3px;
+}
+.mulfern-badge img {
+  display: block;
+  width: auto;
+  height: 36px;
+}
 .footer-status i {
   width: 10px;
   height: 10px;
@@ -1367,6 +1392,12 @@ h1 {
   .footer-status {
     gap: 8px;
     padding: 8px 12px;
+  }
+  .footer-legal {
+    gap: 12px;
+  }
+  .mulfern-badge img {
+    height: 32px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
