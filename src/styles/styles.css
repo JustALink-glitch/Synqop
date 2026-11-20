@@ -941,12 +941,6 @@ h1 {
   color: var(--color-white);
   white-space: nowrap;
 }
-.footer-legal {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
 .mulfern-badge {
   display: inline-flex;
   border-radius: 999px;
@@ -1392,9 +1386,6 @@ h1 {
   .footer-status {
     gap: 8px;
     padding: 8px 12px;
-  }
-  .footer-legal {
-    gap: 12px;
   }
   .mulfern-badge img {
     height: 32px;
